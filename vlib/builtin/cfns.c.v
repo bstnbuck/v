@@ -209,7 +209,7 @@ fn C.CreateFile(lpFilename &u16, dwDesiredAccess u32, dwShareMode u32, lpSecurit
 
 fn C.CreateFileW(lpFilename &u16, dwDesiredAccess u32, dwShareMode u32, lpSecurityAttributes &u16, dwCreationDisposition u32, dwFlagsAndAttributes u32, hTemplateFile voidptr) u32
 
-fn C.GetFinalPathNameByHandle(hFile voidptr, lpFilePath &u16, nSize u32, dwFlags u32) int
+fn C.GetFinalPathNameByHandleA(hFile voidptr, lpFilePath &u16, nSize u32, dwFlags u32) int
 
 fn C.GetFinalPathNameByHandleW(hFile voidptr, lpFilePath &u16, nSize u32, dwFlags u32) int
 
