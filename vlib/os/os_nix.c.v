@@ -376,8 +376,12 @@ pub fn (mut f File) close() {
 	C.fclose(f.cfile)
 }
 
-[inline]
 pub fn debugger_present() bool {
+	// under solaris sys/ptrace.h and its function no longer exist
+	$if solaris {
+		eprintln('os.debugger_present() does not work on Solaris operating systems.')
+		return false
+	}
 	// check if the parent could trace its process,
 	// if not a debugger must be present
 	$if linux {
