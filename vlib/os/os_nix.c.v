@@ -256,9 +256,9 @@ pub fn hostname() !string {
 	mut hstnme := ''
 	size := 256
 	buf := unsafe { &char(malloc_noscan(size)) }
+	defer { unsafe { free(buf) } }
 	if C.gethostname(buf, size) == 0 {
 		hstnme = unsafe { cstring_to_vstring(buf) }
-		unsafe { free(buf) }
 		return hstnme
 	}
 	return error(posix_get_error_msg(C.errno))
