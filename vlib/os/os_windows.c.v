@@ -406,7 +406,6 @@ pub fn symlink(origin string, target string) ! {
 	if !exists(target) {
 		return error('C.CreateSymbolicLinkW reported success, but symlink still does not exist')
 	}
-	return error('could not symlink')
 }
 
 pub fn link(origin string, target string) ! {
